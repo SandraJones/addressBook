@@ -1,0 +1,26 @@
+<h1>Address Book</h1>	
+				<div class = "row">
+					<div class = "col-xs-6 col-xs-offset-3">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+							</span>
+						<input type="text" class="form-control" placeholder="Search for.." ng-model="searchText">
+						</div>
+					</div>
+				</div>				
+					<div ng-repeat = "thingy in items | filter:searchText"><!-- this is a for each loop the current one is called thingy don't need to use $scope in html the curly brackets let us know that it is a variable-->
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class = "col-xs-1"><input type="checkbox" name=""/></div>
+								<div class = "col-xs-2">{{thingy.name}}</div>
+								<div class = "col-xs-2">{{thingy.street}}</div>
+								<div class = "col-xs-2">{{thingy.city}}</div>
+								<div class = "col-xs-1">{{thingy.state}}</div>
+								<div class = "col-xs-1">{{thingy.zip}}</div>
+								<div class = "col-xs-2">{{thingy.email}}</div>
+								<div class = "col-xs-1"><button class="btn btn-danger">X</button></div>
+							</div>
+						</div>	
+				</div>	
+
