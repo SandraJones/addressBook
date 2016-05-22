@@ -1,0 +1,13 @@
+$color: grey;
+$red: green;
+
+
+body {
+	background-color: $color;
+}
+.main-container {
+	border: 3px solid $red;
+}
+h1 {
+	text-align: center;
+}
