@@ -1,0 +1,29 @@
+{
+  "name": "ng-addressbookapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SandraJones/addressBook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SandraJones/addressBook/issues"
+  },
+  "homepage": "https://github.com/SandraJones/addressBook#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-watch": "^4.3.5",
+    "jshint-stylish": "^2.2.0",
+    "sass": "^0.5.0",
+    "watchify": "^3.7.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
