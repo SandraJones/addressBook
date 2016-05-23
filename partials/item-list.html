@@ -8,7 +8,8 @@
 						<input type="text" class="form-control" placeholder="Search for.." ng-model="searchText">
 						</div>
 					</div>
-				</div>				
+				</div>	
+					<!-- this filter command allows us to search the address book 			 -->
 					<div ng-repeat = "thingy in items | filter:searchText"><!-- this is a for each loop the current one is called thingy don't need to use $scope in html the curly brackets let us know that it is a variable-->
 						<div class="panel panel-default">
 							<div class="panel-body">

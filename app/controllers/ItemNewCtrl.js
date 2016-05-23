@@ -31,7 +31,7 @@ app.controller("ItemNewCtrl", function($scope) {
 	];
 
 	$scope.addNewAddress = function() {
-		console.log("you added a new item", $scope.newAddress);
+		console.log("you added a new address", $scope.newAddress);
 		//this is where a send to firebase will go 
 		$scope.newAddress.id= $scope.items.length;
 		$scope.items.push($scope.newAddress);

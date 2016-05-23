@@ -1,13 +1,14 @@
 $color: grey;
-$red: green;
-
+$lineColor: green;
 
 body {
 	background-color: $color;
 }
+
 .main-container {
-	border: 3px solid $red;
+	border: 3px solid $lineColor;
 }
+
 h1 {
 	text-align: center;
 }
