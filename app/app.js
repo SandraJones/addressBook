@@ -1,16 +1,16 @@
 var app = angular.module("AddressBookApp", ["ngRoute"]);
 
 app.config(function($routeProvider) {
-	$routeProvider.when("/items/list", {
+	$routeProvider.when("/addresses/list", {
 		templateUrl: "partials/item-list.html",
 		controller: "ItemListCtrl"
-	}).when("/items/new", {
+	}).when("/addresses/new", {
 		templateUrl: "partials/item-new.html",
 		controller: "ItemNewCtrl"
-	}).when("/items/details", {
+	}).when("/addresses/details", {
 		templateUrl: "partials/item-details.html",
 		controller: "ItemViewCtrl"
-	}).otherwise("items/list");
+	}).otherwise("addresses/list");
 });
 	
 
