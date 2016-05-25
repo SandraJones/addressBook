@@ -5,12 +5,12 @@ app.controller("NavCtrl", function($scope ){
 		url: "#/logout"
 	},
 	{
-		name: "All Items",
-		url: "#/items/list"
+		name: "All Addresses",
+		url: "#/adresses/list"
 	},
 	{
-		name: "New Item",
-		url: "#/items/new"
+		name: "New Address",
+		url: "#/adresses/new"
 	}
 	];
 });
