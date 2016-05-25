@@ -1,15 +1,12 @@
-app.controller("ItemViewCtrl", function($scope) {
-	
+app.controller("ItemViewCtrl", function($scope, $routeParams, addressStorage) {
+	$scope.addresses= [];
+	$scope.selectedAddress = {};
 
-
-
-});
-
-
-
-
-
-app.controller("ItemViewCtrl", function($scope) {
-	$scope.welcome = "Hello";
-
+	//this calls the list from firebase and puts an individual address onto the DOM per the url id
+	addressStorage.getItemList().then(function(addressCollection){
+		$scope.addresses = addressCollection;
+		$scope.selectedAddress = $scope.addresses.filter(function(addressAny){
+			return address.id === $routeParams.addressId;
+		})[0];
+	})
 });
