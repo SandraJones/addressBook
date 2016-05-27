@@ -6,7 +6,7 @@ app.controller("ItemViewCtrl", function($scope, $routeParams, addressStorage) {
 	addressStorage.getAddressList().then(function(addressCollection){
 		$scope.addresses = addressCollection;
 		$scope.selectedAddress = $scope.addresses.filter(function(addressAny){
-			return address.id === $routeParams.addressId;
+			return addressAny.id === $routeParams.addressId;
 		})[0];
 	})
 });

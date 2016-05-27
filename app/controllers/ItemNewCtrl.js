@@ -1,4 +1,7 @@
 app.controller("ItemNewCtrl", function($scope, $location, addressStorage) {
+	$scope.title = "New Address";
+	$scope.submitButtonText = "addNewAddress";
+	
 	$scope.newAddress = {
 		name: "",
 		street: "",

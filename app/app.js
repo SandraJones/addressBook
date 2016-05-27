@@ -1,17 +1,23 @@
-var app = angular.module("AddressBookApp", ["ngRoute"]);
+var app = angular.module("AddressBookApp", ["ngRoute"])	
+	.constant("firebaseURL", "https://todo-appskj.firebaseio.com/");
 
 app.config(function($routeProvider) {
-	$routeProvider.when("/adresses/list", {
+	$routeProvider.when("/addresses/list", {
 		templateUrl: "partials/item-list.html",
 		controller: "ItemListCtrl"
-	}).when("/adresses/new", {
+
+	}).when("/addresses/new", {
 		templateUrl: "partials/item-new.html",
 		controller: "ItemNewCtrl"
-	}).when("/adresses/details", {
+
+	}).when("/addresses/:addressId", {
 		templateUrl: "partials/item-details.html",
 		controller: "ItemViewCtrl"
-	}).otherwise("adresses/list");
+
+	}).when("/addresses/:addressId/edit", {
+		templateUrl: "partials/item-new.html",
+		controller: "ItemEditCtrl"
+
+	}).otherwise("addresses/list");
 });
 	
-
-//took out the "d" in addresses

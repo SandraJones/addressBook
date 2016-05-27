@@ -1,17 +1,14 @@
 "use strict";
-app.factory("addressStorage", function($q, $http){
+app.factory("addressStorage", function($q, $http, firebaseURL){
 
-//get 
 	var getAddressList = function(){
 	var addresses = [];
 		return $q(function(resolve, reject){
-		$http.get("https://addressbooksj.firebaseio.com/adresses.json")	
+		$http.get(firebaseURL + "addresses.json")	
 			.success(function(addressObject) {
 				var addressCollection = addressObject;
-				// console.log("addressCollection", addressCollection);
-				//this loops through each address and pulls out the key value pairs
 				Object.keys(addressCollection).forEach(function(key){
-					addressCollection[key];
+					addressCollection[key].id=key;
 					addresses.push(addressCollection[key]);
 				})
 				resolve(addresses);
@@ -21,21 +18,21 @@ app.factory("addressStorage", function($q, $http){
 			});
 			})
 	}
-//delete
-	var deleteAddress = function(){
+
+	var deleteAddress = function(addressId){
 		return $q(function(resolve, reject){
 			$http
-				.delete(`https://addressbooksj.firebaseio.com/adresses/${addressId}.json`)
+				.delete(firebaseURL +"addresses/" +addressId +".json")
 				.success(function(objectFromFirebase){
 					resolve(objectFromFirebase)
 				})
 		})
 	}
-	//post
+	
 	var postNewAddress = function(newAddress){
 		return $q(function(resolve, reject){
 			$http.post(
-				"https://addressbooksj.firebaseio.com/adresses/${addressId}.json",
+				firebaseURL + "addresses.json",
 				JSON.stringify({
 					name: newAddress.name,
 					street: newAddress.street,
@@ -52,8 +49,39 @@ app.factory("addressStorage", function($q, $http){
 			);
 		});
 	}
-  return{getAddressList:getAddressList, deleteAddress:deleteAddress, postNewAddress:postNewAddress}
+
+	var getOneAddress = function(addressId){
+			return $q(function(resolve, reject){
+			$http.get(firebaseURL + "addresses/" + addressId + ".json")	
+				.success(function(addressObject){
+					resolve(addressObject);
+				})
+				.error(function(error){
+					reject(error);
+				});
+			})
+	}
+
+	var updateAddress = function(addressId, newAddress){
+		return $q(function(resolve, reject){
+			$http.put(
+				firebaseURL + "addresses/" + addressId + ".json",
+				  JSON.stringify({
+				  	name: newAddress.name,
+						street: newAddress.street,
+						city: newAddress.city,
+						state: newAddress.state,
+						zip: newAddress.zip,
+						email: newAddress.email
+				  })
+				)
+				.success(
+					function(objectFromFirebase){
+						resolve(objectFromFirebase);
+					}
+				);
+		});
+	};
+
+  return{getAddressList:getAddressList, updateAddress:updateAddress, getOneAddress:getOneAddress, deleteAddress:deleteAddress, postNewAddress:postNewAddress}
 });
-
-
-
