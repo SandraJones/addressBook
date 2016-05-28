@@ -1,0 +1,17 @@
+$color: grey;
+$lineColor: green;
+
+body {
+	background-color: $color;
+}
+
+.main-container {
+	border: 3px solid $lineColor;
+}
+
+h1 {
+	text-align: center;
+}
+
+.search-bar-spacing {
+  margin-bottom: 10px; }

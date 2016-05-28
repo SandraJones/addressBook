@@ -1,0 +1,11 @@
+body {
+  background-color: grey; }
+
+.main-container {
+  border: 3px solid green; }
+
+h1 {
+  text-align: center; }
+
+.search-bar-spacing {
+  margin-bottom: 10px; }

@@ -1,0 +1,28 @@
+	// {
+	// 	"addresses": {
+	// 		"address00": {
+	// 			"name": "Ted Brewer",
+	// 			"street": "Wallbridge Ave.",
+	// 			"city": "Cleveland",
+	// 			"state": "Ohio",
+	// 			"zip": "44189",
+	// 			"email": "tedb@gmail.com"
+	// 		},
+	// 		"address01": {
+	// 			"name": "Jean Abbrey",
+	// 			"street": "Main St.",
+	// 			"city": "Columbus",
+	// 			"state": "Ohio",
+	// 			"zip": "44003",
+	// 			"email": "jean@gmail.com"
+	// 		},
+	// 		"address02": {
+	// 			"name": "Eduardo Rodriquez",
+	// 			"street": "Legend St.",
+	// 			"city": "Canton",
+	// 			"state": "Ohio",
+	// 			"zip": "44707",
+	// 			"email": "Eduardor@gmail.com"
+	// 		}
+	// 	}
+	// }
