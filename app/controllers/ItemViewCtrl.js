@@ -8,5 +8,5 @@ app.controller("ItemViewCtrl", function($scope, $routeParams, addressStorage) {
 		$scope.selectedAddress = $scope.addresses.filter(function(addressAny){
 			return addressAny.id === $routeParams.addressId;
 		})[0];
-	})
+	});
 });

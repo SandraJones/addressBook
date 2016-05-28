@@ -13,7 +13,8 @@ app.controller("ItemNewCtrl", function($scope, $location, addressStorage) {
 //I need to print it to DOM and add it to firebase
 	$scope.addNewAddress = function(){
 		addressStorage.postNewAddress($scope.newAddress)
-		.then(function successCallback(response){     //wondering if there shouldn't be a parenthesis after function? no, we are naming the function there
+		.then(function successCallback(response){  
+		console.log("response", response);
 			$location.url("/addresses/list");          //using items here so I don't have to alter the app.js 
 			});
   };

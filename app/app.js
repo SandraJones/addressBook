@@ -1,5 +1,5 @@
 var app = angular.module("AddressBookApp", ["ngRoute"])	
-	.constant("firebaseURL", "https://todo-appskj.firebaseio.com/");
+	.constant("firebaseURL", "https://addressbooksj.firebaseio.com/");
 
 app.config(function($routeProvider) {
 	$routeProvider.when("/addresses/list", {

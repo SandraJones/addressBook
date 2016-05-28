@@ -4,30 +4,32 @@ app.factory("addressStorage", function($q, $http, firebaseURL){
 	var getAddressList = function(){
 	var addresses = [];
 		return $q(function(resolve, reject){
-		$http.get(firebaseURL + "addresses.json")	
+		$http.get(firebaseURL + "addresses.json")	//logged the url and it returned an object
 			.success(function(addressObject) {
 				var addressCollection = addressObject;
+				console.log("addressObject", addressObject);
 				Object.keys(addressCollection).forEach(function(key){
 					addressCollection[key].id=key;
+					console.log(key);
 					addresses.push(addressCollection[key]);
-				})
+				});
 				resolve(addresses);
 				})
 			.error(function(error){
 				reject(error);
 			});
-			})
-	}
+			});
+	};
 
 	var deleteAddress = function(addressId){
 		return $q(function(resolve, reject){
 			$http
-				.delete(firebaseURL +"addresses/" +addressId +".json")
+				.delete(firebaseURL +"addresses/" + addressId +".json")
 				.success(function(objectFromFirebase){
-					resolve(objectFromFirebase)
-				})
-		})
-	}
+					resolve(objectFromFirebase);
+				});
+		});
+	};
 	
 	var postNewAddress = function(newAddress){
 		return $q(function(resolve, reject){
@@ -48,7 +50,7 @@ app.factory("addressStorage", function($q, $http, firebaseURL){
 				}
 			);
 		});
-	}
+	};
 
 	var getOneAddress = function(addressId){
 			return $q(function(resolve, reject){
@@ -59,8 +61,8 @@ app.factory("addressStorage", function($q, $http, firebaseURL){
 				.error(function(error){
 					reject(error);
 				});
-			})
-	}
+			});
+	};
 
 	var updateAddress = function(addressId, newAddress){
 		return $q(function(resolve, reject){
@@ -74,8 +76,7 @@ app.factory("addressStorage", function($q, $http, firebaseURL){
 						zip: newAddress.zip,
 						email: newAddress.email
 				  })
-				)
-				.success(
+				).success(
 					function(objectFromFirebase){
 						resolve(objectFromFirebase);
 					}
@@ -83,5 +84,5 @@ app.factory("addressStorage", function($q, $http, firebaseURL){
 		});
 	};
 
-  return{getAddressList:getAddressList, updateAddress:updateAddress, getOneAddress:getOneAddress, deleteAddress:deleteAddress, postNewAddress:postNewAddress}
+  return{getAddressList:getAddressList, updateAddress:updateAddress, getOneAddress:getOneAddress, deleteAddress:deleteAddress, postNewAddress:postNewAddress};
 });
