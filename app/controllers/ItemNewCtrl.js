@@ -14,8 +14,8 @@ app.controller("ItemNewCtrl", function($scope, $location, addressStorage) {
 	$scope.addNewAddress = function(){
 		addressStorage.postNewAddress($scope.newAddress)
 		.then(function successCallback(response){  
-		console.log("response", response);
-			$location.url("/addresses/list");          //using items here so I don't have to alter the app.js 
+			$location.url("/addresses/list");    
+			// console.log("response of addNewAddress in ItemNewCtrl.js", response);      //using items here so I don't have to alter the app.js 
 			});
   };
 });

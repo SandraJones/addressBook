@@ -7,10 +7,8 @@ app.factory("addressStorage", function($q, $http, firebaseURL){
 		$http.get(firebaseURL + "addresses.json")	//logged the url and it returned an object
 			.success(function(addressObject) {
 				var addressCollection = addressObject;
-				console.log("addressObject", addressObject);
 				Object.keys(addressCollection).forEach(function(key){
 					addressCollection[key].id=key;
-					console.log(key);
 					addresses.push(addressCollection[key]);
 				});
 				resolve(addresses);
