@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+				<!-- this file allows the user to input a new address into each field and then submit -->
+				<form>
+					<div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" placeholder="name" ng-model="newAddress.name">
+					</div>
+					<div class="form-group">
+						<label>Street</label>
+						<input type="text" class="form-control" placeholder="422 South Main" ng-model="newAddress.street">
+					</div>
+					<div class="form-group">
+						<label>City</label>
+						<input type="text" class="form-control" placeholder="Cleveland" ng-model="newAddress.city">
+					</div>
+					<div class="form-group">
+						<label>State</label>
+						<input type="text" class="form-control" placeholder="Ohio" ng-model="newAddress.state">
+					</div>
+					<div class="form-group">
+						<label>Zip Code</label>
+						<input type="text" class="form-control" placeholder="44769" ng-model="newAddress.zip">
+					</div>
+					<div class="form-group">
+						<label>E-mail</label>
+						<input type="text" class="form-control" placeholder="sandy@awesome.com" ng-model="newAddress.email">
+					</div>
+					<div class="text-center">
+						<button class="btn btn-default" ng-click = "addNewAddress()">{{submitButtonText}}</button>
+					</div>
+				</form>	
+			
