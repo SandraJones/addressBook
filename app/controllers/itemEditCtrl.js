@@ -4,18 +4,16 @@ app.controller("ItemEditCtrl", function($scope, $location, $routeParams, address
 	$scope.newAddress = {};
 
 	addressStorage.getOneAddress($routeParams.addressId)
-	// console.log("addressId", addressId )
 	 	 .then(function successCallback(response){
-	 	 	// console.log("response", response);
 		 $scope.newAddress = response;
+	 	 console.log("response in ItemEditCtrl.js", response);
 	});
 
 	 $scope.addNewAddress = function() {
 	 	addressStorage.updateAddress($routeParams.addressId, $scope.newAddress)
 	 		.then(function successCallback(response){
-	 			// console.log("response", response);
 	 			$location.url("/addresses/list");
-	 			// console.log("/addresses/list")
 	 		});
-	 };
+	 		console.log("ItemEditCtrl.js this is after scope.addNewAddress","/addresses/list")
+	 	};
 });

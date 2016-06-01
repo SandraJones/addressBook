@@ -1,16 +1,15 @@
 "use strict";
-app.factory("addressStorage", function($q, $http, firebaseURL){
+app.factory("addressStorage", function($q, $http, firebaseURL, $location, AuthFactory){
 
 	var getAddressList = function(){
 	var addresses = [];
+	let user = AuthFactory.getUser();
 		return $q(function(resolve, reject){
-		$http.get(firebaseURL + "addresses.json")	//logged the url and it returned an object
+		$http.get(`${firebaseURL}addresses.json?orderBy="uid&equalTo="{user.uid}"`)	//logged the url and it returned an object
 			.success(function(addressObject) {
 				var addressCollection = addressObject;
-				console.log("addressObject", addressObject);
 				Object.keys(addressCollection).forEach(function(key){
 					addressCollection[key].id=key;
-					console.log(key);
 					addresses.push(addressCollection[key]);
 				});
 				resolve(addresses);
@@ -74,7 +73,8 @@ app.factory("addressStorage", function($q, $http, firebaseURL){
 						city: newAddress.city,
 						state: newAddress.state,
 						zip: newAddress.zip,
-						email: newAddress.email
+						email: newAddress.email,
+						uid: user.uid
 				  })
 				).success(
 					function(objectFromFirebase){
