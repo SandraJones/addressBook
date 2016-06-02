@@ -10,7 +10,7 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject){
 			console.log("User is not authenticated, reject route promise");
 			reject();
 		}
-	})
+	});
 
 app.config(function($routeProvider) {
 	$routeProvider
